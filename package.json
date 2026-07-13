@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "auth:generate": "pnpm dlx auth@latest generate --output src/lib/db/schema/auth-schema.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
