@@ -32,7 +32,7 @@ A production-ready starter template for Next.js apps that need authentication wi
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/your-username/nbd-stack my-app
+git clone https://github.com/Rajat0741/nbd-stack my-app
 cd my-app
 pnpm install
 ```
@@ -47,7 +47,7 @@ Fill in `.env`:
 
 ```env
 DATABASE_URL=          # Neon connection string
-BETTER_AUTH_SECRET=    # Any long random string: openssl rand -hex 32
+BETTER_AUTH_SECRET=    # openssl rand -base64 32
 BETTER_AUTH_URL=http://localhost:3000
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
@@ -97,10 +97,12 @@ src/
 ├── features/
 │   ├── auth/
 │   │   ├── actions/                 # Server actions for auth (add yours here)
+│   │   ├── hooks/                   # Client-side hooks for auth
 │   │   └── components/
 │   │       └── login-card.tsx
 │   └── profile/
 │       ├── actions/                 # Server actions for profile (add yours here)
+│       ├── hooks/                   # Client-side hooks for profile
 │       └── components/
 │           └── profile-card.tsx
 ├── lib/
@@ -109,6 +111,7 @@ src/
 │   └── db/
 │       ├── index.ts                 # Drizzle + Neon client
 │       ├── migrations/              # Drizzle migration files (pnpm db:generate)
+│       ├── queries/                 # Reusable Drizzle query helpers
 │       ├── schema/auth-schema.ts    # Better Auth tables (auto-generated)
 │       └── schema/index.ts
 └── proxy.ts                         # Next.js 16 middleware (route protection)
