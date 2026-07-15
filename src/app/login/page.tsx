@@ -1,7 +1,7 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { LoginCard } from "@/features/auth/components/login-card";
+import { auth } from "@/lib/auth";
 
 export default async function LoginPage() {
   const session = await auth.api.getSession({ headers: await headers() });

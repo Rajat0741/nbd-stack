@@ -11,9 +11,18 @@ A production-ready starter template for Next.js apps that need authentication wi
 | Framework | [Next.js 16](https://nextjs.org) (App Router) |
 | Auth | [Better Auth](https://www.better-auth.com) |
 | ORM | [Drizzle ORM](https://orm.drizzle.team) |
-| Database | [Neon](https://neon.tech) (serverless Postgres) |
+| Database | [Neon](https://neon.com) (serverless Postgres) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) |
+| UI | [shadcn/ui](https://ui.shadcn.com) components |
+| Theme | [next-themes](https://github.com/pacocoursey/next-themes) (dark by default) |
 | Linting / Formatting | [Biome](https://biomejs.dev) |
+
+---
+
+## UI Recommendations
+
+- Customize the shadcn/ui style and icon library when creating a new project: [shadcn/ui Create](https://ui.shadcn.com/create)
+- This template uses `react-icons` for brand logos such as Google because Lucide-react no longer provides those icons. See Lucide's [Brand Logo Statement](https://lucide.dev/brand-logo-statement).
 
 ---
 
@@ -65,7 +74,7 @@ pnpm db:push
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Sign in with Google, get redirected to your profile. Done.
+Open [http://localhost:3000](http://localhost:3000). The app starts in dark mode and includes a theme toggle in the top-right corner. Sign in with Google to get redirected to your profile.
 
 ---
 
@@ -89,35 +98,16 @@ Open [http://localhost:3000](http://localhost:3000). Sign in with Google, get re
 
 ```
 src/
-├── app/
-│   ├── api/auth/[...all]/route.ts   # Better Auth request handler
-│   ├── login/page.tsx               # Public — redirects to /profile if session exists
-│   ├── profile/page.tsx             # Protected — redirects to /login if no session
-│   └── page.tsx                     # Landing page
+├── app/                              # Routes, layouts, global styles, and API handlers
+├── components/ui/                    # Theme controls and shadcn/ui primitives
 ├── features/
-│   ├── auth/
-│   │   ├── actions/                 # Server actions for auth (add yours here)
-│   │   ├── hooks/                   # Client-side hooks for auth
-│   │   └── components/
-│   │       └── login-card.tsx
-│   └── profile/
-│       ├── actions/                 # Server actions for profile (add yours here)
-│       ├── hooks/                   # Client-side hooks for profile
-│       └── components/
-│           └── profile-card.tsx
-├── lib/
-│   ├── auth.ts                      # Server-side Better Auth config
-│   ├── auth-client.ts               # Client-side Better Auth instance (auto-generated)
-│   └── db/
-│       ├── index.ts                 # Drizzle + Neon client
-│       ├── migrations/              # Drizzle migration files (pnpm db:generate)
-│       ├── queries/                 # Reusable Drizzle query helpers
-│       ├── schema/auth-schema.ts    # Better Auth tables (auto-generated)
-│       └── schema/index.ts
-└── proxy.ts                         # Next.js 16 middleware (route protection)
+│   ├── auth/                         # Auth components, actions, and hooks
+│   └── profile/                      # Profile components, actions, and hooks
+├── lib/                              # Auth, database, and shared utilities
+│   └── db/                           # Drizzle client, schema, migrations, and queries
 ```
 
-### Opinionated feature structure (suggested)
+### Recommended feature structure (Optional)
 
 Each feature slice follows this convention — nothing is enforced, adapt freely:
 
