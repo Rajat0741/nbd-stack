@@ -74,7 +74,7 @@ pnpm db:push
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The app starts in dark mode and includes a theme toggle in the top-right corner. Sign in with Google to get redirected to your profile.
+Open [http://localhost:3000](http://localhost:3000). The app starts in dark mode and includes a theme toggle in the top-right corner. Sign in with Google to get redirected to your profile, or use the docs links on the landing page to jump to Next.js, Better Auth, or Drizzle documentation.
 
 ---
 
@@ -99,12 +99,14 @@ Open [http://localhost:3000](http://localhost:3000). The app starts in dark mode
 ```
 src/
 ├── app/                              # Routes, layouts, global styles, and API handlers
-├── components/ui/                    # Theme controls and shadcn/ui primitives
+├── components/ui/                    # shadcn/ui primitives and reusable UI components
 ├── features/
 │   ├── auth/                         # Auth components, actions, and hooks
 │   └── profile/                      # Profile components, actions, and hooks
+├── layout/                           # Shared layout pieces (theme toggle, docs links)
 ├── lib/                              # Auth, database, and shared utilities
 │   └── db/                           # Drizzle client, schema, migrations, and queries
+├── proxy.ts                          # Middleware matcher config for protected routes
 ```
 
 ### Recommended feature structure (Optional)
