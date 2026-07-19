@@ -1,8 +1,14 @@
 import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { DocsLinks } from "@/layout/docs-links";
 import { buttonVariants } from "@/components/ui/button";
-import { auth } from "@/lib/auth";
+
+/*
+* Press ctrl + s to sort imports
+* instead of sorting manually
+* Try sorting the imports above
+*/
 
 export default async function Home() {
   const session = await auth.api.getSession({ headers: await headers() });
